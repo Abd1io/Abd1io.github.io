@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Train Station Extractor</title>
+</head>
+<body>
+  <textarea id="longText" cols="50" rows="10" placeholder="Enter the long text here..."></textarea><br><br>
+  <button onclick="extractStation()">Extract Station</button><br><br>
+  <p id="result"></p>
+
+  <script>
+    function extractStation() {
+      const longText = document.getElementById("longText").value;
+      const regex = /(train\s+station|railway\s+station|station)\s+\b(\w+\s?\w+)\b/gi; // Consider multiple variations
+      const match = longText.match(regex);
+
+      const resultElement = document.getElementById("result");
+
+      if (match) {
+        const stationName = match[2];
+        resultElement.textContent = "Extracted station: " + stationName;
+      } else {
+        resultElement.textContent = "No train station found in the text.";
+      }
+    }
+  </script>
+</body>
+</html>
