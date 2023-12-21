@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Train Station Extractor</title>
+<title>Train Station Matcher</title>
 </head>
 <body>
   <textarea id="longText" cols="50" rows="10" placeholder="Enter the long text here..."></textarea><br><br>
-  <button onclick="extractStation()">Extract Station</button><br><br>
+  <button onclick="findStation()">Find Station</button><br><br>
   <p id="result"></p>
 
   <script>
-    function extractStation() {
+    async function findStation() {
       const longText = document.getElementById("longText").value;
-      const regex = /(train\s+station|railway\s+station|station)\s+\b(\w+\s?\w+)\b/gi; // Consider multiple variations
-      const match = longText.match(regex);
 
-      const resultElement = document.getElementById("result");
+      try {
+        const stationList = await fetch("stations.txt") // Replace with your file path
+          .then(response => response.text())
+          .then(text => text.split("\n").map(station => station.trim()));
 
-      if (match) {
-        const stationName = match[2];
-        resultElement.textContent = "Extracted station: " + stationName;
-      } else {
-        resultElement.textContent = "No train station found in the text.";
+        const foundStation = stationList.find(station => longText.includes(station));
+
+        const resultElement = document.getElementById("result");
+
+        if (foundStation) {
+          resultElement.textContent = "Found station: " + foundStation;
+        } else {
+          resultElement.textContent = "No matching station found in the text.";
+        }
+      } catch (error) {
+        console.error("Error fetching station list:", error);
+        resultElement.textContent = "Error: Could not load station list.";
       }
     }
   </script>
