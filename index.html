@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Word Finder (File)</title>
+<title>Word Finder (Case-Insensitive, Space-Ignoring)</title>
 </head>
 <body>
 
@@ -16,11 +16,13 @@
 
 <script>
 async function findWord() {
-  const wordToFind = document.getElementById("word").value;
-  const fileContent = await (await fetch("./words.txt")).text();
-  const wordIndex = fileContent.toLowerCase().indexOf(wordToFind.toLowerCase());
+  const wordToFind = document.getElementById("word").value.trim().toLowerCase(); // Trim and lowercase user input
+  const fileContent = await (await fetch("words.txt")).text().toLowerCase(); // Lowercase file content
 
-  if (wordIndex !== -1) {
+  const wordRegex = new RegExp("\\b" + wordToFind + "\\b", "g"); // Create a regular expression for word boundaries
+  const isWordFound = fileContent.match(wordRegex);
+
+  if (isWordFound) {
     document.getElementById("result").textContent = "The word '" + wordToFind + "' was found in the file.";
   } else {
     document.getElementById("result").textContent = "The word '" + wordToFind + "' was not found in the file.";
