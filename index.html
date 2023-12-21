@@ -18,18 +18,15 @@
         loadingStatusElement.textContent = "Loading station list...";
 
         const stationListResponse = await fetch("./stations.txt");
-        console.log("Station list response:", stationListResponse);
-
         const stationListText = await stationListResponse.text();
-        console.log("Station list text:", stationListText);
 
-        const stationList = stationListText.split("\n").map(station => station.trim().toLowerCase());
-        console.log("Station list (processed):", stationList);
+        // Split station names by commas and trim whitespace:
+        const stationList = stationListText.split(",").map(station => station.trim().toLowerCase());
 
         loadingStatusElement.textContent = "";
 
+        // Find any matching station name:
         const foundStation = stationList.find(station => longText.includes(station));
-        console.log("Found station:", foundStation);
 
         const resultElement = document.getElementById("result");
 
