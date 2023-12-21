@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Train Station Matcher</title>
-<script src="./script.js"></script> </head>
+<title>Word Finder (File)</title>
+</head>
 <body>
-  <textarea id="longText" cols="50" rows="10" placeholder="Enter the long text here..."></textarea><br><br>
 
-  <button onclick="findStation()">Find Station</button><br><br>
+<h1>Word Finder</h1>
 
-  <p id="result"></p>
+<label for="word">Enter the word to find:</label><br>
+<input type="text" id="word"><br><br>
 
-  <p id="loadingStatus"></p>
+<button onclick="findWord()">Find Word</button>
+
+<p id="result"></p>
+
+<script>
+async function findWord() {
+  const wordToFind = document.getElementById("word").value;
+  const fileContent = await (await fetch("./words.txt")).text();
+  const wordIndex = fileContent.toLowerCase().indexOf(wordToFind.toLowerCase());
+
+  if (wordIndex !== -1) {
+    document.getElementById("result").textContent = "The word '" + wordToFind + "' was found in the file.";
+  } else {
+    document.getElementById("result").textContent = "The word '" + wordToFind + "' was not found in the file.";
+  }
+}
+</script>
 
 </body>
 </html>
