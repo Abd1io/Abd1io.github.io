@@ -7,15 +7,19 @@
   <textarea id="longText" cols="50" rows="10" placeholder="Enter the long text here..."></textarea><br><br>
   <button onclick="findStation()">Find Station</button><br><br>
   <p id="result"></p>
-
-  <script>
+  <p id="loadingStatus"></p> <script>
     async function findStation() {
       const longText = document.getElementById("longText").value;
+      const loadingStatusElement = document.getElementById("loadingStatus");
 
       try {
+        loadingStatusElement.textContent = "Loading station list..."; // Show loading status
+
         const stationList = await fetch("./stations.txt") // Replace with your file path
           .then(response => response.text())
           .then(text => text.split("\n").map(station => station.trim()));
+
+        loadingStatusElement.textContent = ""; // Clear loading status after success
 
         const foundStation = stationList.find(station => longText.includes(station));
 
@@ -28,7 +32,8 @@
         }
       } catch (error) {
         console.error("Error fetching station list:", error);
-        resultElement.textContent = "Error: Could not load station list.";
+        loadingStatusElement.textContent = "Error: Could not load station list."; // Show error message
+        resultElement.textContent = ""; // Clear previous result
       }
     }
   </script>
