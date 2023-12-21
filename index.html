@@ -13,7 +13,7 @@
       const longText = document.getElementById("longText").value;
 
       try {
-        const stationList = await fetch("stations.txt") // Replace with your file path
+        const stationList = await fetch("./stations.txt") // Replace with your file path
           .then(response => response.text())
           .then(text => text.split("\n").map(station => station.trim()));
 
