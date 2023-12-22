@@ -16,8 +16,9 @@
 
 <script>
 async function findWord() {
-  const wordToFind = document.getElementById("word").value.trim().toLowerCase(); // Trim and lowercase user input
-  const fileContent = await (await fetch("words.txt")).text().toLowerCase(); // Lowercase file content
+  const response = await fetch("words.txt"); // Get the response first
+  const fileContent = await response.text(); // Then extract the text
+  const fileContentLower = fileContent.toLowerCase(); // Now apply toLowerCase()
 
   const wordRegex = new RegExp("\\b" + wordToFind + "\\b", "g"); // Create a regular expression for word boundaries
   const isWordFound = fileContent.match(wordRegex);
