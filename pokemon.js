@@ -4,7 +4,7 @@ const form = document.getElementById("addPokemonForm");
 form.addEventListener("submit", (event) => {
   // Prevents the form from submitting and refreshing the page
   event.preventDefault();
-  const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
+  const pokemonName = document.getElementById("pokemonName").value;
 fetch(`${API_URL}/${pokemonName}`)
     .then((response) => response.json())
     .then((newPokemon) => {
