@@ -1,21 +1,15 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>Colorful Bars</title>
-<style>
-  .bar {
-    width: 99%; /* Fill the entire width */
-    height: 300px;  /* Set the height to 3px */
-    margin-bottom: 0.5px; /* Add some space between bars */
-  }
-</style>
-</head>
-<body>
-  <div class="bar" style="background-color: red;"></div>
-  <div class="bar" style="background-color: green;"></div>
-  <div class="bar" style="background-color: blue;"></div>
-  <div class="bar" style="background-color: yellow;"></div>
-  <div class="bar" style="background-color: purple;"></div>
+<html lang="en">
+  <head>
+    <title>Pokemon Fetch!</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+   </head>
+  <body>
+    <form id="addPokemonForm">
+      <input type="text" id="pokemonName" />
+      <button type="submit">Add Pokemon</button>
+    </form>
+    <div id="root"></div>
+    <script src="pokemon.js"></script>
   </body>
 </html>
- 
