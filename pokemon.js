@@ -13,7 +13,7 @@ form.addEventListener("submit", (event) => {
       const image = document.createElement("img");
       const name = document.createElement("h1");
       div.className = "card";
-      image.src = newPokemon.sprites.other.dream_world.front_default;
+      image.src = newPokemon.sprites.front_default; // Use the available property;
       name.textContent = newPokemon.name;
       div.appendChild(name);
       div.appendChild(image);
