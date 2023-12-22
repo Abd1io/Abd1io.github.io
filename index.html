@@ -1,35 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Word Finder (Case-Insensitive, Space-Ignoring)</title>
+<title>Colorful Bars</title>
+<style>
+  .bar {
+    width: 100%; /* Fill the entire width */
+    height: 3px;  /* Set the height to 3px */
+    margin-bottom: 5px; /* Add some space between bars */
+  }
+</style>
 </head>
 <body>
-
-<h1>Word Finder</h1>
-
-<label for="word">Enter the word to find:</label><br>
-<input type="text" id="word"><br><br>
-
-<button onclick="findWord()">Find Word</button>
-
-<p id="result"></p>
-
-<script>
-async function findWord() {
-  const response = await fetch("words.txt"); // Get the response first
-  const fileContent = await response.text(); // Then extract the text
-  const fileContentLower = fileContent.toLowerCase(); // Now apply toLowerCase()
-
-  const wordRegex = new RegExp("\\b" + wordToFind + "\\b", "g"); // Create a regular expression for word boundaries
-  const isWordFound = fileContent.match(wordRegex);
-
-  if (isWordFound) {
-    document.getElementById("result").textContent = "The word '" + wordToFind + "' was found in the file.";
-  } else {
-    document.getElementById("result").textContent = "The word '" + wordToFind + "' was not found in the file.";
-  }
-}
-</script>
-
-</body>
+  <div class="bar" style="background-color: red;"></div>
+  <div class="bar" style="background-color: green;"></div>
+  <div class="bar" style="background-color: blue;"></div>
+  <div class="bar" style="background-color: yellow;"></div>
+  <div class="bar" style="background-color: purple;"></div>
+  </body>
 </html>
+ 
