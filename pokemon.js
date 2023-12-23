@@ -24,6 +24,6 @@ fetch(`${API_URL.replace("{ids}", lineId)}`)
       // other ideas:
       // div.appendChild(pokemonNameLabel);
       // div.appendChild(pokemonAttack);
-      // div.appendChild(pokemonHealth);
+      //div.appendChild(pokemonHealth);
   });
 });
