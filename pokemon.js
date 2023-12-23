@@ -10,10 +10,12 @@ form.addEventListener("submit", (event) => {
   fetch(`${API_URL.replace("{ids}", lineId)}`)
     .then((response) => response.json())
     .then((lineStatusData) => {
-      // Access and display line status information
-      const statusSeverityDescription = lineStatusData.lineStatuses[0].statusSeverityDescription;
-      statusElement.textContent = `Line Status: ${statusSeverityDescription}`;
-    })
+ const statuses = lineStatusData.lineStatuses.map(status => status.statusSeverityDescription);
+    const statusText = statuses.join(", ");
+
+    // Update the element with pure text
+    statusElement.textContent = `Line Status: ${statusText}`;
+  })
     .catch((error) => {
       console.error("Error fetching line status:", error);
       statusElement.textContent = "Error fetching line status."; // Display error message
