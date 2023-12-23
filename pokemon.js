@@ -1,5 +1,6 @@
 const API_URL = "https://api.tfl.gov.uk/Line/{ids}/Status";
 const statusElement = document.getElementById("lineStatus"); // Target the correct element
+console.log(statusElement);
 const form = document.getElementById("lineStatusForm");
 
 form.addEventListener("submit", (event) => {
