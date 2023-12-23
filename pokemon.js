@@ -1,5 +1,5 @@
 const API_URL = "https://api.tfl.gov.uk/Line/{ids}/Status";
-const root = document.getElementById("root");
+const root = document.getElementById("lineStatus");
 const form = document.getElementById("lineStatusForm");
 form.addEventListener("submit", (event) => {
   // Prevents the form from submitting and refreshing the page
