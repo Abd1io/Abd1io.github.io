@@ -19,7 +19,7 @@ form.addEventListener("submit", (event) => {
       }
     })
     .catch((error) => {
-      // Handle any errors that occur during the fetch or response parsing
+      // Handle any errors thatoccur during the fetch or response parsing
       console.error("Error fetching line status:", error);
       statusElement.textContent = "An error occurred while retrieving line status.";
     });
