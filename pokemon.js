@@ -1,13 +1,13 @@
-const API_URL = "https://pokeapi.co/api/v2/pokemon";
+const API_URL = "https://api.tfl.gov.uk/Line/{ids}/Status";
 const root = document.getElementById("root");
 const form = document.getElementById("addPokemonForm");
 form.addEventListener("submit", (event) => {
   // Prevents the form from submitting and refreshing the page
   event.preventDefault();
-  const pokemonName = document.getElementById("pokemonName").value;
-fetch(`${API_URL}/${pokemonName}`)
+  const lineId = document.getElementById("ids").value;
+fetch(`${API_URL.replace("{ids}", lineId)}`)
     .then((response) => response.json())
-    .then((newPokemon) => {
+    .then((lineId) => {
       // create elements for the Pokemon Card
       const div = document.createElement("div");
       const image = document.createElement("img");
