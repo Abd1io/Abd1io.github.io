@@ -11,7 +11,7 @@ form.addEventListener("submit", (event) => {
     .then((response) => response.json())
     .then((lineStatusData) => {
  const statuses = lineStatusData.lineStatuses.map(status => status.statusSeverityDescription);
-    const statusText = statuses.join(", ");
+ const statusText = statuses.join(", ");
 
     // Update the element with pure text
     statusElement.textContent = `Line Status: ${statusText}`;
