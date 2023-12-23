@@ -16,8 +16,5 @@ form.addEventListener("submit", (event) => {
     // Update the element with pure text
     statusElement.textContent = `Line Status: ${statusText}`;
   })
-    .catch((error) => {
-      console.error("Error fetching line status:", error);
-      statusElement.textContent = "Error fetching line status."; // Display error message
-    });
+
 });
