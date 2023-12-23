@@ -18,7 +18,7 @@ form.addEventListener("submit", (event) => {
         const firstStatusDescription = lineStatusData.lineStatuses[0].statusSeverityDescription;
         statusElement.textContent = `Line Status: ${firstStatusDescription}`;
       } else {
-        statusElement.textContent = "Line status information not available.";
+        statusElement.textContent = "Line status information not availabl" ${lineStatusData} ;
       }
     })
     .catch((error) => {
