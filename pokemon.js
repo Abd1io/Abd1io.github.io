@@ -4,7 +4,7 @@ const form = document.getElementById("lineStatusForm");
 form.addEventListener("submit", (event) => {
   // Prevents the form from submitting and refreshing the page
   event.preventDefault();
-  const lineId = document.getElementById("ids").value;
+  const lineId = document.getElementById("lineId").value;
 fetch(`${API_URL.replace("{ids}", lineId)}`)
     .then((response) => response.json())
     .then((lineId) => {
