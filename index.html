@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Pokemon Fetch!</title>
-    <link rel="stylesheet" type="text/css" href="./styles.css" />
-   </head>
-  <body>
-    <form id="addPokemonForm">
-      <input type="text" id="ids" onkeyup="this.value = this.value.toLowerCase()">
-      <button type="submit">Add Pokemon</button>
-    </form>
-    <div id="root"></div>
-    <script src="./pokemon.js"></script>
-  </body>
+<head>
+  <title>Line Status Fetcher</title>
+  <link rel="stylesheet" type="text/css" href="./styles.css" />
+</head>
+<body>
+  <h1>Check Line Status</h1>
+  <form id="lineStatusForm">
+    <label for="lineId">Enter Line ID:</label>
+    <input type="text" id="lineId" onkeyup="this.value = this.value.toLowerCase()">
+    <button type="submit">Check Status</button>
+  </form>
+  <div id="lineStatus"></div>
+  <script src="./pokemon.js"></script> </body>
 </html>
