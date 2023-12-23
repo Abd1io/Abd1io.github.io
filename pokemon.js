@@ -9,15 +9,15 @@ fetch(`${API_URL.replace("{ids}", lineId)}`)
     .then((response) => response.json())
     .then((lineId) => {
       // create elements for the Pokemon Card
-      const div = document.createElement("div");
-      const image = document.createElement("img");
-      const name = document.createElement("h1");
-      div.className = "card";
-      image.src = newPokemon.sprites.front_default; // Use the available property;
-      name.textContent = newPokemon.name;
-      div.appendChild(name);
-      div.appendChild(image);
-      root.appendChild(div);
+      //const div = document.createElement("div");
+      //const image = document.createElement("img");
+      //const name = document.createElement("h1");
+      //div.className = "card";
+     // image.src = newPokemon.sprites.front_default; // Use the available property;
+     // name.textContent = newPokemon.name;
+      //div.appendChild(name);
+     // div.appendChild(image);
+     // root.appendChild(div);
 
       // another image option:
       //image.src = newPokemon.sprites.front_default;
