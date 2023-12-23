@@ -9,7 +9,7 @@ form.addEventListener("submit", (event) => {
 
   fetch(`${API_URL.replace("{ids}", lineId)}`)
     .then((response) => {
-      // Parse the JSON response here using response.json()
+      // Parse the JSON  response here using response.json()
       return response.json();
     })
     .then((lineStatusData) => {
