@@ -1,6 +1,6 @@
 const API_URL = "https://api.tfl.gov.uk/Line/{ids}/Status";
 const root = document.getElementById("root");
-const form = document.getElementById("addPokemonForm");
+const form = document.getElementById("lineStatusForm");
 form.addEventListener("submit", (event) => {
   // Prevents the form from submitting and refreshing the page
   event.preventDefault();
