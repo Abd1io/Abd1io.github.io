@@ -6,11 +6,11 @@ $(() => {
   
   .get('https://api.tfl.gov.uk/Line/Mode/tube')
     .done(data => {
-      const lineIds = data.map(line => line.id);
+      const lineIds = data.map(line => id);
 
       // Loop through each line and fetch status
       lineIds.forEach(lineId => {
-        $.get(`https://api.tfl.gov.uk/Line/${lineId}/Status`)
+        $.get(`https://api.tfl.gov.uk/Line/${Id}/Status`)
           .done(data => {
             const lineName = data.lineStatuses[0].name;
             const statusDescription = data.lineStatuses[0].statusSeverityDescription;
