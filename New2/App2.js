@@ -1,6 +1,10 @@
+/* global google:ignore */
+
 $(() => {
-  // Get all line IDs
-  $.get('https://api.tfl.gov.uk/Line/Meta/Modes')
+  function getData() {
+  
+  
+  .get('https://api.tfl.gov.uk/Line/Meta/Modes')
     .done(data => {
       const lineIds = data.map(line => line.id);
 
