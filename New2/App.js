@@ -9,12 +9,12 @@ $(() => {
         let lineName = bikePoint.commonName;
         let  status = bikePoint.lat;
         let longitude = bikePoint.lon;
-        getBikesAndSpaces(latitude, longitude, name, bikePoint.additionalProperties);
+        getStatus (latitude, longitude, name, bikePoint.additionalProperties);
       });
     });
   }
 
-  function getBikesAndSpaces(latitude, longitude, name, dockDetails) {
+  function getStatud(latitude, longitude, name, dockDetails) {
     let bikes = 0;
     let spaces = 0;
 

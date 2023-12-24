@@ -4,7 +4,7 @@ $(() => {
   function getData() {
   
   
-  .get('https://api.tfl.gov.uk/Line/Meta/Modes')
+  .get('https://api.tfl.gov.uk/Line/Mode/tube')
     .done(data => {
       const lineIds = data.map(line => line.id);
 
