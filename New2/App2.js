@@ -8,7 +8,6 @@ $(() => {
         lineIds.forEach(lineId => {
           $.get(`https://api.tfl.gov.uk/Line/${lineId}/Status`)
             .done(data => {
-              const line = data; // Access line data from the response
               const lineName = line.name;
               const statusDescription = line.statusSeverityDescription;
 
