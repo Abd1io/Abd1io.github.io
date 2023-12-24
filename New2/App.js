@@ -3,11 +3,11 @@
 $(() => {
   function getData() {
     $
-    .get('https://api.tfl.gov.uk/bikepoint')
+    .get('https://api.tfl.gov.uk/Line/Mode/{lineid}/Status")
     .done(data => {
-      data.forEach(bikePoint => {
-        let name = bikePoint.commonName;
-        let latitude = bikePoint.lat;
+      data.forEach(lines => {
+        let lineName = bikePoint.commonName;
+        let  status = bikePoint.lat;
         let longitude = bikePoint.lon;
         getBikesAndSpaces(latitude, longitude, name, bikePoint.additionalProperties);
       });
