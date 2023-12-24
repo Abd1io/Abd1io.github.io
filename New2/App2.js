@@ -1,45 +1,20 @@
-/* global google:ignore */
-
 $(() => {
   function getData() {
-  
-  
-  .get('https://api.tfl.gov.uk/Line/Mode/tube')
-    .done(data => {
-      const lineIds = data.map(line => id);
+    $.get('https://api.tfl.gov.uk/Line/Mode/tube')
+      .done(data => {
+        const lineIds = data.map(line => line.id);
 
-      // Loop through each line and fetch status
-      lineIds.forEach(lineId => {
-        $.get(`https://api.tfl.gov.uk/Line/${Id}/Status`)
-          .done(data => {
-            const lineName = data.lineStatuses[0].name;
-            const statusDescription = data.lineStatuses[0].statusSeverityDescription;
-            const statusColor = getStatusColor(statusDescription);
+        // Loop through each line ID and fetch status
+        lineIds.forEach(lineId => {
+          $.get(`https://api.tfl.gov.uk/Line/${lineId}/Status`)
+            .done(data => {
+              const line = data; // Access line data from the response
+              const lineName = line.name;
+              const statusDescription = line.statusSeverityDescription;
 
-            // Create bar element
-            const bar = document.createElement('div');
-            bar.classList.add('line-status-bar');
-            bar.style.backgroundColor = statusColor;
-            bar.textContent = `${lineName}: ${statusDescription}`;
-
-            // Add bar to HTML
-            const lineStatusesContainer = document.getElementById('line-statuses');
-            lineStatusesContainer.appendChild(bar);
-          });
+              console.log({ lineName, statusDescription }); // Log data for HTML handling (excluding color)
+            });
+        });
       });
-    });
-});
-
-// Define function to map status to color
-function getStatusColor(statusDescription) {
-  switch (statusDescription) {
-    case 'Good Service':
-      return 'green';
-    case 'Minor Delays':
-      return 'yellow';
-    case 'Severe Delays':
-      return 'red';
-    default:
-      return 'gray';
   }
-}
+});

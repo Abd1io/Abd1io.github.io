@@ -6,8 +6,8 @@ $(() => {
     .get('https://api.tfl.gov.uk/Line/Mode/{lineid}/Status")
     .done(data => {
       data.forEach(lines => {
-        let lineName = bikePoint.commonName;
-        let  status = bikePoint.lat;
+        let lineName = line.name;
+        let  status = line.;
         let longitude = bikePoint.lon;
         getStatus (latitude, longitude, name, bikePoint.additionalProperties);
       });
