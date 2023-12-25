@@ -1,29 +1,23 @@
-$(() => {
-  console.log('Beginning data retrieval...');
+// Fetch subway line data from the API
+fetch('https://api.tfl.gov.uk/Line/Mode/tube')
+  .then(response => response.json()) // Convert response to JSON
+  .then(statusData => {
+    statusData.forEach(line => {
+      // Extract subway line name
+      const lineName = line.name;
 
-  function getData() {
-    console.log('Fetching tube line data...');
-    $.get('https://api.tfl.gov.uk/Line/Mode/tube')
-      .done(data => {
-        console.log('Tube line data received:', data);
+      // Loop through each status entry for a subway line
+      line.lineStatuses.forEach(status => {
+        // Extract status description for the subway line
+        const statusDescription = status.statusSeverityDescription;
 
-        const lineIds = data.map(line => line.id);
-
-        // Loop through each line ID and fetch status
-        lineIds.forEach(lineId => {
-          console.log(`Fetching status for line ID ${lineId}...`);
-          $.get(`https://api.tfl.gov.uk/Line/${lineId}/Status`)
-            .done(data => {
-              console.log('Status data for line:', data);
-
-              const lineName = line.name;
-              const statusDescription = line.statusSeverityDescription;
-
-              console.log(`Line ${lineName}: ${statusDescription}`); // Log data for HTML handling
-            });
-        });
+        // Access the table and populate it with line name and status
+        const tableBody = document.getElementById('tableBody');
+        const row = tableBody.insertRow();
+        const nameCell = row.insertCell();
+        const statusCell = row.insertCell();
+        nameCell.textContent = lineName;
+        statusCell.textContent = statusDescription;
       });
-  }
-
-  getData(); // Trigger the data fetching process
-});
+    });
+  });
