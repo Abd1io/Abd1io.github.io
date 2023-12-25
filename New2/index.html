@@ -2,23 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Subway Status</title>
+  <title>Line Status</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="app.js" defer></script>
 </head>
 <body>
-
-  <!-- Table to display subway line statuses -->
-  <h1>Subway Status</h1>
-  <table id="statusTable">
+  <h1>Line Status</h1>
+  <table id="lineStatusTable">
     <thead>
       <tr>
-        <th>Line</th>
+        <th>Line Name</th>
         <th>Status</th>
       </tr>
     </thead>
-    <tbody id="tableBody"></tbody>
+    <tbody id="lineStatusBody">
+      <!-- Line status information will be populated here -->
+    </tbody>
   </table>
-
-  <script src="./New2/App2.js"></script> <!-- Linking to the separate JavaScript file -->
-
 </body>
 </html>
