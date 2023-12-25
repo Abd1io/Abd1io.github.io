@@ -16,7 +16,7 @@ $(() => {
   function appendToTable(lineName, status) {
     let newRow = `<tr><td>${lineName}</td><td>${status}</td></tr>`;
     $('#lineStatusBody').append(newRow);
-  }
+  } 
 
   getData();
 });
