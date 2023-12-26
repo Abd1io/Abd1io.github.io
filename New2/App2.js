@@ -9,11 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
       })
       .then(data => {
-        // Iterate through the data and create status bars
+        // Iterate through the data and create status bars for each line
         data.forEach((line, index) => {
           let lineName = line.name;
-          let status = line.statusSeverityDescription; // Directly use status property if available
-          createStatusBar(lineName, status, index);
+          let status = line.statusSeverityDescription;
+          createStatusBar(lineName, status);
         });
       })
       .catch(error => {
@@ -22,37 +22,46 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Create a status bar based on line data
-  function createStatusBar(lineName, status, index) {
+  function createStatusBar(lineName, status) {
     let lineStatusBars = document.getElementById('lineStatusBars');
-
-    // Create a div for the line status bar
     let statusBar = document.createElement('div');
     statusBar.classList.add('line-status-bar');
-
-    // Determine the class for the bar based on an index or condition
-    let barClass = getBarColorClass(index); // Function to get the appropriate color class
+    let barClass = getBarColorClass(lineName);
     statusBar.classList.add(barClass);
-
-    // Set the content for the bar (line name and status)
     statusBar.innerHTML = `<strong>${lineName}</strong>: ${status}`;
-
-    // Append the created bar to the container
     lineStatusBars.appendChild(statusBar);
   }
 
-  // Determine the color class for the status bar
-  function getBarColorClass(index) {
-    // Define logic here to determine the color class based on the index or condition
-    // For example:
-    if (index % 3 === 0) {
-      return 'bar-color-1'; // Apply bar-color-1 class every 3rd bar
-    } else if (index % 3 === 1) {
-      return 'bar-color-2'; // Apply bar-color-2 class every 3rd+1 bar
-    } else {
-      return 'bar-color-3'; // Apply bar-color-3 class every 3rd+2 bar
+  // Determine the color class for the status bar based on the line name
+  function getBarColorClass(lineName) {
+    switch (lineName) {
+      case 'Bakerloo':
+        return 'bakerloo-class';
+      case 'Central':
+        return 'central-class';
+      case 'Circle':
+        return 'circle-class';
+      case 'District':
+        return 'district-class';
+      case 'Hammersmith & City':
+        return 'hammersmith-city-class';
+      case 'Jubilee':
+        return 'jubilee-class';
+      case 'Metropolitan':
+        return 'metropolitan-class';
+      case 'Northern':
+        return 'northern-class';
+      case 'Piccadilly':
+        return 'piccadilly-class';
+      case 'Victoria':
+        return 'victoria-class';
+      case 'Waterloo & City':
+        return 'waterloo-city-class';
+      default:
+        return 'default-class';
     }
   }
 
-  // Initiate fetching data
+  // Fetch and display line status data
   getData();
 });

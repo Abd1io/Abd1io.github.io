@@ -1,8 +1,55 @@
+/* Define styles for line status bars */
 .line-status-bar {
-  width: 100%;
-  height: 20px;
-  margin-bottom: 5px;
-  text-align: center;
-  line-height: 20px;
-  font-weight: bold;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+/* Default colors for each line */
+.bakerloo-class {
+  background-color: #FFA500; /* Default color for Bakerloo line */
+}
+
+.central-class {
+  background-color: #008000; /* Default color for Central line */
+}
+
+.circle-class {
+  background-color: #0000FF; /* Default color for Circle line */
+}
+
+.district-class {
+  background-color: #FFD700; /* Default color for District line */
+}
+
+.hammersmith-city-class {
+  background-color: #800080; /* Default color for Hammersmith & City line */
+}
+
+.jubilee-class {
+  background-color: #808080; /* Default color for Jubilee line */
+}
+
+.metropolitan-class {
+  background-color: #800000; /* Default color for Metropolitan line */
+}
+
+.northern-class {
+  background-color: #FF0000; /* Default color for Northern line */
+}
+
+.piccadilly-class {
+  background-color: #00FFFF; /* Default color for Piccadilly line */
+}
+
+.victoria-class {
+  background-color: #00FF00; /* Default color for Victoria line */
+}
+
+.waterloo-city-class {
+  background-color: #FFFF00; /* Default color for Waterloo & City line */
+}
+
+.default-class {
+  background-color: #CCCCCC; /* Default color for lines without specific color */
 }
