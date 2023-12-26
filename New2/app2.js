@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
       })
       .then(data => {
-        // Iterate through the data and create status bars for each line
+        console.log(data); // Logging the received data from the API
         data.forEach((line, index) => {
           let lineName = line.name;
           let status = line.statusSeverityDescription;
