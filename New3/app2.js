@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Fetch data from the API
+  // Function to fetch data from the API
   function getData() {
     fetch('https://api.tfl.gov.uk/Line/Mode/tube/Status')
       .then(response => {
@@ -9,9 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
       })
       .then(data => {
-        console.log(data); // Logging the received data from the API
         data.forEach((line, index) => {
-          console.log(line); // Logging the individual line object
           let lineName = line.name;
           let status = line.lineStatuses[0].statusSeverityDescription;
           createStatusBar(lineName, status);
@@ -22,18 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // Create a status bar based on line data
+  // Function to create a status bar based on line data
   function createStatusBar(lineName, status) {
     let lineStatusBars = document.getElementById('lineStatusBars');
     let statusBar = document.createElement('div');
     statusBar.classList.add('line-status-bar');
+    statusBar.setAttribute('onclick', 'toggleDetails(this)'); // Add onclick event listener
     let barClass = getBarColorClass(lineName);
     statusBar.classList.add(barClass);
     statusBar.innerHTML = `<strong>${lineName}</strong>: ${status}`;
+    let detailsElement = document.createElement('div');
+    detailsElement.classList.add('details', 'hidden');
+    detailsElement.innerHTML = 'More details about the line status';
+    statusBar.appendChild(detailsElement);
     lineStatusBars.appendChild(statusBar);
   }
 
-  // Determine the color class for the status bar based on the line name
+  // Function to determine the color class for the status bar based on the line name
   function getBarColorClass(lineName) {
     switch (lineName) {
       case 'Bakerloo':
@@ -61,6 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
       default:
         return 'default-class';
     }
+  }
+
+  // Function to toggle the visibility of the details element
+  function toggleDetails(element) {
+    const detailsElement = element.querySelector('.details');
+    detailsElement.classList.toggle('hidden');
   }
 
   // Fetch and display line status data
