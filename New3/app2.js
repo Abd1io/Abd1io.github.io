@@ -72,6 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
     detailsElement.classList.toggle('hidden');
   }
 
+  // Export the toggleDetails function
+  export { toggleDetails };
+
   // Fetch and display line status data
   getData();
 });
