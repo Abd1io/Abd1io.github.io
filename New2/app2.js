@@ -8,14 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return response.json();
       })
-      .then(data => {
-        console.log(data); // Logging the received data from the API
-        data.forEach((line, index) => {
-          let lineName = line.name;
-          let status = line.statusSeverityDescription;
-          createStatusBar(lineName, status);
-        });
-      })
+   .then(data => {
+  console.log(data); // Logging the received data from the API
+  data.forEach((line, index) => {
+    console.log(line); // Logging the individual line object
+    let lineName = line.name;
+    let status = line.statusSeverityDescription;
+    createStatusBar(lineName, status);
+  });
+})
       .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
       });
