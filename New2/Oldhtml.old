@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Line Status</title>
   <link rel="stylesheet" href="style2.css"> <!-- Linking the CSS file -->
+  <link rel="stylesheet" href="animations.css"> <!-- Linking the animations CSS file -->
 </head>
 <body>
   <h1>Line Status</h1>
   <div id="lineStatusBars"></div> <!-- Container to hold line status bars -->
   
-  <script src="display.js" defer></script> <!-- Linking the JavaScript file -->
+  <script src="app2.js" defer></script> <!-- Linking the JavaScript file -->
 </body>
 </html>
