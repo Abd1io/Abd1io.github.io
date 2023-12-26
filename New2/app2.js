@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data.forEach((line, index) => {
           console.log(line); // Logging the individual line object
           let lineName = line.name;
-          let status = line.statusSeverityDescription;
+          let status = lline.lineStatuses[0].statusSeverityDescription;
           createStatusBar(lineName, status);
         });
       })
