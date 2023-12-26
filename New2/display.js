@@ -1,4 +1,4 @@
-import { fetchData } from 'apiCalls.js';
+import { fetchData } from './apiCalls.js';
 
 // Fetches data and processes it to create status bars
 function processFetchedData() {

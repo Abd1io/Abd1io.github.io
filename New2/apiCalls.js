@@ -1,5 +1,5 @@
 // Function to fetch data from the API
-function fetchData() {
+export const fetchData = () => {
   return fetch('https://api.tfl.gov.uk/Line/Mode/tube/Status')
     .then(response => {
       if (!response.ok) {
@@ -10,6 +10,4 @@ function fetchData() {
     .catch(error => {
       console.error('There has been a problem with your fetch operation:', error);
     });
-}
-
-export { fetchData }; // Export the function to use in other files
+};
