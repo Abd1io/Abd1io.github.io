@@ -1,72 +1,101 @@
-/* Define styles for line status bars */
+/* Basic styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styling for the line status bars */
 .line-status-bar {
   padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Additional styling for line names */
+.line-name {
+  font-weight: bold;
+}
+
+/* Styling for line status - initially hidden */
+.line-status {
+  display: block;
+}
+
+/* Toggle visibility for line status */
+.line-status:not(.hidden) {
+  display: none;
+  /* Add transition or animations here for smooth visibility toggling */
 }
 
 /* Colors for each line */
-.bakerloo-class {
+.bakerloo {
   color: #fff; /* Text color */
   background-color: #a65a2a; /* Background color */
   border-color: #a65a2a; /* Border color */
 }
 
-.central-class {
+.central {
   color: #fff; /* Text color */
   background-color: #e1251b; /* Background color */
   border-color: #e1251b; /* Border color */
 }
 
-.circle-class {
+.circle {
   color: #000; /* Text color */
   background-color: #ffcd00; /* Background color */
   border-color: #ffcd00; /* Border color */
 }
 
-.district-class {
+.district {
   color: #fff; /* Text color */
   background-color: #007934; /* Background color */
   border-color: #007934; /* Border color */
 }
 
-.hammersmith-city-class {
+.hammercity {
   color: #000; /* Text color */
   background-color: #ec9bad; /* Background color */
   border-color: #ec9bad; /* Border color */
 }
 
-.jubilee-class {
+.jubilee {
   color: #fff; /* Text color */
   background-color: #7b868c; /* Background color */
   border-color: #7b868c; /* Border color */
 }
 
-.metropolitan-class {
+.metropolitan {
   color: #fff; /* Text color */
   background-color: #870f54; /* Background color */
   border-color: #870f54; /* Border color */
 }
 
-.northern-class {
+.northern {
   color: #fff; /* Text color */
   background-color: #000; /* Background color */
   border-color: #000; /* Border color */
 }
 
-.piccadilly-class {
+.piccadilly {
   color: #fff; /* Text color */
   background-color: #000f9f; /* Background color */
   border-color: #000f9f; /* Border color */
 }
 
-.victoria-class {
+.victoria {
   color: #fff; /* Text color */
   background-color: #00a0df; /* Background color */
   border-color: #00a0df; /* Border color */
 }
 
-.waterloo-city-class {
+.waterloocity {
   color: #000; /* Text color */
   background-color: #6bcdb2; /* Background color */
   border-color: #6bcdb2; /* Border color */
