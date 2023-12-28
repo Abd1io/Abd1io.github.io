@@ -4,13 +4,8 @@ body {
   margin: 0;
   padding: 0;
 
-  padding-top: constant(safe-area-inset-top); /* For iOS 11.2 and earlier */
-  padding-top: env(safe-area-inset-top); /* For iOS 11.2 and later */
-
-  /* Change status bar background color */
-  background-color: ; /* Replace with your desired color */
-}
-
+  body {
+  background-color: #014473;
 
 }
 
