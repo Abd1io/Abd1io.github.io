@@ -25,17 +25,27 @@ document.addEventListener('DOMContentLoaded', () => {
       nameElement.textContent = lineName;
 
       const statusElement = document.createElement('div');
-      statusElement.classList.add('line-status');
+      statusElement.classList.add('statusElement'); // Changed to .statusElement **
       statusElement.textContent = status;
 
-         
-statusBar.onclick = function() {
-  statusElement.classList.toggle('hidden');
-};
-    
-          
-      statusBar.appendChild(nameElement);
+      // ** New code start **
+      const emojiElement = document.createElement('div');
+      emojiElement.classList.add('emoji'); // Add class for emoji
+      emojiElement.textContent = getEmojiForStatus(status); // Get emoji based on status
+      // ** New code end **
+
+      statusBar.onclick = function() {
+        statusElement.classList.toggle('active');
+      };
+
+      
+        statusBar.append(nameElement, emojiElement);
       statusBar.appendChild(statusElement);
+
+      // ** New code start **
+      ; // Add the emoji element
+      // ** New code end **
+
       lineStatusBars.appendChild(statusBar);
     });
   }
@@ -68,9 +78,23 @@ statusBar.onclick = function() {
       return 'waterloocity';
     default:
       return 'default-class';
+    }
   }
-}
-      
+
+  // ** New code start **
+  // Function to get emoji based on line status
+  function getEmojiForStatus(status) {
+    // Placeholder emojis based on status (you can replace these)
+    if (status.toLowerCase().includes('part closure')) {
+      return '🚧'; // Emoji for partial closure
+    } else if (status.toLowerCase().includes('fully closed')) {
+      return '🚫'; // Emoji for full closure
+    } else {
+      return '✅'; // Emoji for line status good
+    }
+  }
+  // ** New code end **
+
   // Fetch and display line status data
   getData();
 });

@@ -3,6 +3,15 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+
+  padding-top: constant(safe-area-inset-top); /* For iOS 11.2 and earlier */
+  padding-top: env(safe-area-inset-top); /* For iOS 11.2 and later */
+
+  /* Change status bar background color */
+  background-color: ; /* Replace with your desired color */
+}
+
+
 }
 
 h1 {
@@ -11,27 +20,42 @@ h1 {
 }
 
 /* Styling for the line status bars */
+/* Styling for the line status bars */
 .line-status-bar {
   padding: 10px;
   margin-bottom: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: height 555.3s ease;
 }
 
+
+/* Additional styling for line names */
 /* Additional styling for line names */
 .line-name {
   font-weight: bold;
+  display: inline-block; /* Add this line */
+}
+
+/* Styling for the emoji */
+.emoji {
+  display: inline-block; /* Add this line */
+  margin-left: 10px; /* Adjust the margin as needed for spacing */
 }
 
 /* Styling for line status - initially hidden */
-.line-status {
-  display: block;
+
+/* Initially hide the element */
+.statusElement {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: height 0.3s ease, opacity 0.3s ease;
 }
 
-/* Toggle visibility for line status */
-.line-status:not(.hidden) {
-  display: none;
-  /* Add transition or animations here for smooth visibility toggling */
+/* When active, show and change height */
+.statusElement.active {
+  height: 100px; /* Your desired height */
+  opacity: 1;
 }
 
 /* Colors for each line */
@@ -50,13 +74,16 @@ h1 {
 .circle {
   color: #000; /* Text color */
   background-color: #ffcd00; /* Background color */
-  border-color: #ffcd00; /* Border color */
+  border-color: #fffff; /* Border color */
 }
 
 .district {
   color: #fff; /* Text color */
   background-color: #007934; /* Background color */
-  border-color: #007934; /* Border color */
+  border-color: #007555;
+  border-width: 2px; 
+  border-style: solid;
+/* Border color */
 }
 
 .hammercity {
