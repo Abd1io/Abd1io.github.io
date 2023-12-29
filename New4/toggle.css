@@ -1,0 +1,95 @@
+/* Styles for a toggle button */
+.toggle {
+  font-size: 2rem;
+  border: .125em solid currentColor;
+  border-radius: 2em;
+  cursor: pointer;
+  display: block;
+  height: 2em;
+  position: relative;
+  width: 3.75em;
+}
+
+/* Styling for the inner part of the toggle button */
+.toggle span {
+  background-color: currentColor;
+  border-radius: 2em;
+  display: block;
+  height: 1.5em;
+  left: .25em;
+  overflow: hidden;
+  position: absolute;
+  top: .25em;
+  text-indent: -9999px;
+  transition: left .25s;
+  width: 1.5em;
+  z-index: 2;
+}
+
+/* Pseudo-elements used for additional visual elements */
+.toggles::before,
+.toggles::after {
+  content: '';
+  display: block;
+  border-radius: 1em;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Styling for an after pseudo-element */
+.toggles::after {
+  box-shadow: .25em .25em #5901d8;
+  height: 1.125em;
+  right: .9em;
+  top: 125em;
+  width: 1.125em;
+}
+
+/* Styling for a before pseudo-element */
+.toggle::before {
+  background-color: #ffc409;
+  height: .625em;
+  outline: .25em dotted #ffc409;
+  outline-offset: .125em;
+  left: .7em;
+  top: .7em;
+  width: 625em;
+}
+
+/* Styling for a checked toggle */
+input:checked ~ .toggle span {
+  left: 2em;
+}
+
+/* Styling for screen readers */
+.sr-only {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+}
+
+/* Styling for the body */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .25s;
+  color: Dalele1e;
+  background: linear-gradient(to bottom right, #feefff4 25%, #laoffd9 50%, #5c0095 75%, #01072a);
+  background-size: 300% 300%;
+  background-position: top left;
+  transition: background-position .5s;
+}
+
+/* Additional styling for the body and html elements */
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Styling for the body when the dark mode toggle is checked */
+body:has(#darkmode-toggle:checked) {
+  background-position: 188% 100%;
+  color: #d0d0d0;
+}
