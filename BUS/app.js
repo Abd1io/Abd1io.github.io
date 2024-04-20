@@ -1,13 +1,10 @@
 // 1. Find the place to show arrivals (arrivalList)
 const arrivalList = document.getElementById('arrivalList');
 
-
-// 2. Create a box for the bus stop ID (search box)
-const busStopSearchInput = document.createElement('input');
-busStopSearchInput.id = 'busStopSearch'; // Assigning an ID "busStopSearch"
-busStopSearchInput.type = 'text';
-busStopSearchInput.placeholder = 'Enter Bus Stop Name or Location';
- 
+// 2. Create a box for the bus stop ID (busStopIdInput)
+const busStopIdInput = document.createElement('input');
+busStopIdInput.type = 'text';
+busStopIdInput.placeholder = 'Enter Bus Stop ID';
 
 // 3. Create a button to fetch arrivals (submitButton)
 const submitButton = document.createElement('button');
@@ -28,7 +25,7 @@ function handleSubmit(event) {
 // 5. Function to fetch bus arrival info (fetchBusArrivals)
 function fetchBusArrivals(busStopId) {
   // Build the URL to fetch data from the TfL API
-  const url = `https://api.tfl.gov.uk/StopPoint/{busStopId}/Arrivals`;
+  const url = `https://api.tfl.gov.uk/StopPoint/${busStopId}/Arrivals`;
 
   // Fetch data from the TfL API
   fetch(url)
