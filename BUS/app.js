@@ -1,10 +1,11 @@
 // 1. Find the place to show arrivals (arrivalList)
 const arrivalList = document.getElementById('arrivalList');
 
-// 2. Create a box for the bus stop ID (busStopIdInput)
+//2. Create a box for the bus stop ID (busStopIdInput)
 const busStopIdInput = document.createElement('input');
 busStopIdInput.type = 'text';
 busStopIdInput.placeholder = 'Enter Bus Stop ID';
+
 
 // 3. Create a button to fetch arrivals (submitButton)
 const submitButton = document.createElement('button');
