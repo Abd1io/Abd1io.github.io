@@ -26,5 +26,11 @@ h2 {
 }
 
 #busStopSearch {
-  /* Styles for the search box */
+  display: block;
+  width: 200px; /* Adjust width as needed */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
