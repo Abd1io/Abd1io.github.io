@@ -42,12 +42,12 @@ function fetchBusArrivals(busStopId) {
 
       // Prepare a list to show arrival info
       const arrivals = data.map(arrival => {
+        
         const destinationName = arrival.destinationName;
-        const minutes = Math.floor(arrival.timeToLive / 60);
-        const seconds = arrival.timeToLive % 60;
+        const timeToStation = arrival.timeToStation % 60;
 
         // Create a list item for each arrival with details
-        return `<li><b>${destinationName}:</b> Arriving in ${minutes} minutes ${seconds} seconds</li>`;
+        return `<li><b>${destinationName}:</b> Arriving in ${timeToStation} minutes</li>`;
       });
 
       // Show the list of arrivals on the page
