@@ -25,7 +25,7 @@ function handleSubmit(event) {
 // 5. Function to fetch bus arrival info (fetchBusArrivals)
 function fetchBusArrivals(busStopId) {
   // Build the URL to fetch data from the TfL API
-  const url = `https://api.tfl.gov.uk/StopPoint/${busStopId}/Arrivals`;
+  const url = `https://api.tfl.gov.uk/StopPoint/{busStopId}/Arrivals`;
 
   // Fetch data from the TfL API
   fetch(url)
